@@ -1,0 +1,24 @@
+name: AWS CLI Action
+description: Allows you to call `aws` from cli in any commands and get a result back
+
+inputs:
+  command:
+    description: Shell command to be executed
+    required: true
+    default: ''
+  json:
+    description: Whether to encode all echoed result to JSON
+    required: false
+    default: false
+  base64:
+    description: Whether to encode all echoed result (already in JSON?) to Base64
+    required: false
+    default: false
+
+runs:
+  using: docker
+  image: ghcr.io/kamehb-ua/aws-cli-action:v1
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.json }}
+    - ${{ inputs.base64 }}
