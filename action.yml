@@ -17,7 +17,7 @@ inputs:
 
 runs:
   using: docker
-  image: ghcr.io/kamehb-ua/aws-cli-action:v1
+  image: docker://ghcr.io/kamehb-ua/aws-cli-action:v2
   args:
     - ${{ inputs.command }}
     - ${{ inputs.json }}
